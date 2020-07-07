@@ -1,0 +1,324 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>main</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-01-06"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1></h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">5.1 &#20027;&#20803;&#30340;&#36873;&#21462;&#19982;&#31639;&#27861;&#30340;&#31283;&#23450;&#24615;</a></li><li><a href="#2">5.2 &#32447;&#24615;&#20195;&#25968;&#26041;&#31243;&#32452;&#30340;&#24615;&#24577;&#19982;&#26465;&#20214;&#25968;&#30340;&#20272;&#35745;</a></li><li><a href="#3">6.1 &#30149;&#24577;&#30340;&#32447;&#24615;&#26041;&#31243;&#32452;&#30340;&#27714;&#35299;</a></li><li><a href="#4">6.2 Jacobi&#12289;GS&#12289;SOR&#12289;BSOR&#25910;&#25947;&#36895;&#24230;</a></li></ul></div><h2 id="1">5.1 &#20027;&#20803;&#30340;&#36873;&#21462;&#19982;&#31639;&#27861;&#30340;&#31283;&#23450;&#24615;</h2><p>1. &#20934;&#22791;&#21464;&#37327;</p><pre class="codeinput">clear;
+close <span class="string">all</span>;
+n = 10;
+x = ones(n, 1);
+mode = input(<span class="string">'&#35831;&#36873;&#25321;&#27169;&#24335;: 0 &#39034;&#24207;&#28040;&#20803;, 1 &#21015;&#36873;&#26368;&#22823;&#20027;&#20803;, 2 &#21015;&#36873;&#26368;&#23567;&#20027;&#20803; '</span>);
+
+<span class="comment">% 2. &#31243;&#24207;&#24320;&#22987;</span>
+alpha = 6; beta = 8; gamma = 1;
+<span class="comment">% &#23450;&#20041;&#19977;&#23545;&#35282;&#30697;&#38453;A</span>
+A = diag(alpha*ones(n, 1)) + diag(beta*ones(n-1, 1), -1) + diag(gamma*ones(n-1, 1), 1);
+b = A * x;
+C = cond(A, 1);
+X = gauss(A, b, mode);
+</pre><pre class="codeoutput error">Error using input
+Cannot call INPUT from EVALC.
+
+Error in main (line 8)
+mode = input('&#35831;&#36873;&#25321;&#27169;&#24335;: 0 &#39034;&#24207;&#28040;&#20803;, 1 &#21015;&#36873;&#26368;&#22823;&#20027;&#20803;, 2 &#21015;&#36873;&#26368;&#23567;&#20027;&#20803; ');
+</pre><h2 id="2">5.2 &#32447;&#24615;&#20195;&#25968;&#26041;&#31243;&#32452;&#30340;&#24615;&#24577;&#19982;&#26465;&#20214;&#25968;&#30340;&#20272;&#35745;</h2><pre class="codeinput"><span class="comment">% &#23450;&#20041;&#21464;&#37327;</span>
+n = 10;
+b = 15 * ones(n, 1); b(n, 1) = 14; b(1, 1) = 7;
+factor = 1e-6;
+
+<span class="comment">% &#27714;&#25200;&#21160;&#21518;&#30340;&#35823;&#24046;</span>
+alpha = 6; beta = 8; gamma = 1;
+A = diag(alpha*ones(n, 1)) + diag(beta*ones(n-1, 1), -1) + diag(gamma*ones(n-1, 1), 1);
+delta_A = rand(n) * factor; Abar = A + delta_A;
+delta_b = rand(n, 1) * factor; bbar = b + delta_b;
+C = cond(A, 1);
+
+xbar = Abar \ bbar;
+x = ones(n, 1);
+<span class="comment">% &#35745;&#31639;&#35823;&#24046;</span>
+actEps = norm(xbar - x, 1) / norm(x, 1);
+<span class="comment">% %% &#27604;&#36739;&#20989;&#25968;condest&#29992;&#30340;&#26426;&#22120;&#26102;&#38388;, &#27604;&#36739;cond2</span>
+<span class="comment">% time = zeros(100, 1);</span>
+<span class="comment">% mycond2List = zeros(100, 1);</span>
+<span class="comment">% cond2List = zeros(100, 1);</span>
+<span class="comment">% for N = 10:10:1000</span>
+<span class="comment">%     CA = fix(100*randn(N));</span>
+<span class="comment">%     tic</span>
+<span class="comment">%     condestCA = condest(CA);</span>
+<span class="comment">%     toc</span>
+<span class="comment">%     time(N / 10) = toc;</span>
+<span class="comment">%     mycond2List(N / 10) = cond2(CA);</span>
+<span class="comment">%     cond2List(N / 10) = cond(CA, 2);</span>
+<span class="comment">% end</span>
+<span class="comment">%</span>
+<span class="comment">% plot(cond2List - mycond2List)</span>
+
+<span class="comment">% &#29702;&#35770;&#35745;&#31639;&#35823;&#24046;&#38480;</span>
+condestA = condest(A);
+InvA = condestA / norm(A, 1);
+theoryEps = condestA / (1 - InvA * norm(delta_A, 1)) * (norm(delta_A, 1) / norm(A, 1) + norm(delta_b', 1) / norm(b', 1));
+diff = theoryEps - actEps;
+
+<span class="comment">% Hilbert&#30697;&#38453;&#26465;&#20214;&#25968;</span>
+cond1H = ones(1,15); cond2H = ones(1,15); condInfH = ones(1,15);
+<span class="keyword">for</span> n = 1:15
+    hilbert = hilb(n);
+    cond1H(n) = cond(hilbert,1);
+    cond2H(n) = cond(hilbert,2);
+    condInfH(n) = cond(hilbert,inf);
+<span class="keyword">end</span>
+</pre><h2 id="3">6.1 &#30149;&#24577;&#30340;&#32447;&#24615;&#26041;&#31243;&#32452;&#30340;&#27714;&#35299;</h2><pre class="codeinput">H = hilb(20);
+x_exact = ones(20, 1);
+b = H * x_exact;
+x_gauss_1 = gauss(H, b, 0); gauss_err_1 = x_gauss_1 - x_exact;
+x_gauss_2 = gauss(H, b, 1); gauss_err_2 = x_gauss_2 - x_exact;
+i = 1:50;
+<span class="comment">% plot(i, gauss_err_1, i, gauss_err_2);</span>
+<span class="comment">% legend('&#39034;&#24207;&#28040;&#20803;', '&#21015;&#20027;&#20803;')</span>
+[x_jacobi, kj]= Jacobi(H, b, 1e-5, 100);
+[x_GS, kgs]= GS(H, b, 1e-9, 1000);
+[x_SOR, ksor]= SOR(H, b, 1e-9, 1000, 1);
+</pre><h2 id="4">6.2 Jacobi&#12289;GS&#12289;SOR&#12289;BSOR&#25910;&#25947;&#36895;&#24230;</h2><pre class="codeinput">N = 50;
+h = 1 / (N + 1);
+A = zeros(N^2, N^2); b = zeros(N^2, 1); u = zeros(N^2, 1);
+<span class="comment">% &#26500;&#36896;&#30697;&#38453;</span>
+<span class="keyword">for</span> j = 1:N
+    <span class="keyword">for</span> i = 1:N
+        origin = -h^2 * ((i*h)^2 + (j*h)^2) * exp(i*h*j*h);
+        <span class="keyword">if</span> i == 1 &amp;&amp; j == 1
+            b((j-1)*N+i) = 2 + origin;
+        <span class="keyword">elseif</span> i == 1 &amp;&amp; j == N
+            b((j-1)*N+i) = 1 + exp((i+1)*h) + origin;
+        <span class="keyword">elseif</span> i == N &amp;&amp; j == N
+            b((j-1)*N+i) = exp((i+1)*h) + exp((j+1)*h) + origin;
+        <span class="keyword">elseif</span> j == 1 &amp;&amp; i == N
+            b((j-1)*N+i) = 1 + exp((j+1)*h) + origin;
+        <span class="keyword">elseif</span> (i == 1 &amp;&amp; (1 &lt; j &amp;&amp; j &lt; N))
+            b((j-1)*N+i) = 1 + origin;
+        <span class="keyword">elseif</span> (j == 1 &amp;&amp; (1 &lt; i &amp;&amp; i &lt; N))
+            b((j-1)*N+i) = 1 + origin;
+        <span class="keyword">elseif</span> (i == N &amp;&amp; (1 &lt; j &amp;&amp; j &lt; N))
+            b((j-1)*N+i) = exp(j*h) + origin;
+        <span class="keyword">elseif</span> (j == N &amp;&amp; (1 &lt; i &amp;&amp; i &lt; N))
+            b((j-1)*N+i) = exp(i*h) + origin;
+        <span class="keyword">else</span>
+            b((j-1)*N+i) = origin;
+        <span class="keyword">end</span>
+        A((j-1)*N+i, (j-1)*N+i) = 4;
+        <span class="keyword">if</span> i ~= N
+            A((j-1)*N+i, (j-1)*N+i+1) = -1;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> j ~= N
+            A((j-1)*N+i, (j)*N+i) = -1;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> i ~= 1
+            A((j-1)*N+i, (j-1)*N+i-1) = -1;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> j ~= 1
+            A((j-1)*N+i, (j-2)*N+i) = -1;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="comment">% tu = A \ b;</span>
+<span class="comment">% rtu = reshape(tu, N, []);</span>
+<span class="comment">% [X,Y] = meshgrid(1/(N+1):1/(N+1):1-1/(N+1));</span>
+<span class="comment">% u_exact = exp(X.*Y);</span>
+[tu_GS, kgs]= GS(A, b, 1e-5, 1000);
+surf(X,Y,reshape(tu_GS, N, []));
+<span class="comment">% uInf = norm(rtu - u_exact, inf);</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+%% 5.1 主元的选取与算法的稳定性      
+% 1. 准备变量
+clear;
+close all;
+n = 10;
+x = ones(n, 1);
+mode = input('请选择模式: 0 顺序消元, 1 列选最大主元, 2 列选最小主元 ');
+
+% 2. 程序开始
+alpha = 6; beta = 8; gamma = 1;
+% 定义三对角矩阵A
+A = diag(alpha*ones(n, 1)) + diag(beta*ones(n-1, 1), -1) + diag(gamma*ones(n-1, 1), 1);
+b = A * x;
+C = cond(A, 1);
+X = gauss(A, b, mode);
+
+%% 5.2 线性代数方程组的性态与条件数的估计
+
+% 定义变量
+n = 10;
+b = 15 * ones(n, 1); b(n, 1) = 14; b(1, 1) = 7;
+factor = 1e-6;
+
+% 求扰动后的误差
+alpha = 6; beta = 8; gamma = 1;
+A = diag(alpha*ones(n, 1)) + diag(beta*ones(n-1, 1), -1) + diag(gamma*ones(n-1, 1), 1);
+delta_A = rand(n) * factor; Abar = A + delta_A;
+delta_b = rand(n, 1) * factor; bbar = b + delta_b;
+C = cond(A, 1);
+
+xbar = Abar \ bbar;
+x = ones(n, 1);
+% 计算误差
+actEps = norm(xbar - x, 1) / norm(x, 1);
+% %% 比较函数condest用的机器时间, 比较cond2
+% time = zeros(100, 1);
+% mycond2List = zeros(100, 1);
+% cond2List = zeros(100, 1);
+% for N = 10:10:1000
+%     CA = fix(100*randn(N));
+%     tic
+%     condestCA = condest(CA);
+%     toc
+%     time(N / 10) = toc;
+%     mycond2List(N / 10) = cond2(CA);
+%     cond2List(N / 10) = cond(CA, 2);
+% end
+% 
+% plot(cond2List - mycond2List)
+
+% 理论计算误差限
+condestA = condest(A);
+InvA = condestA / norm(A, 1);
+theoryEps = condestA / (1 - InvA * norm(delta_A, 1)) * (norm(delta_A, 1) / norm(A, 1) + norm(delta_b', 1) / norm(b', 1));
+diff = theoryEps - actEps;
+
+% Hilbert矩阵条件数
+cond1H = ones(1,15); cond2H = ones(1,15); condInfH = ones(1,15);
+for n = 1:15
+    hilbert = hilb(n);           
+    cond1H(n) = cond(hilbert,1);
+    cond2H(n) = cond(hilbert,2);
+    condInfH(n) = cond(hilbert,inf);
+end
+
+%% 6.1 病态的线性方程组的求解
+H = hilb(20);
+x_exact = ones(20, 1);
+b = H * x_exact;
+x_gauss_1 = gauss(H, b, 0); gauss_err_1 = x_gauss_1 - x_exact;
+x_gauss_2 = gauss(H, b, 1); gauss_err_2 = x_gauss_2 - x_exact;
+i = 1:50;
+% plot(i, gauss_err_1, i, gauss_err_2);
+% legend('顺序消元', '列主元')
+[x_jacobi, kj]= Jacobi(H, b, 1e-5, 100);
+[x_GS, kgs]= GS(H, b, 1e-9, 1000);
+[x_SOR, ksor]= SOR(H, b, 1e-9, 1000, 1);
+
+%% 6.2 Jacobi、GS、SOR、BSOR收敛速度
+N = 50;
+h = 1 / (N + 1);
+A = zeros(N^2, N^2); b = zeros(N^2, 1); u = zeros(N^2, 1);
+% 构造矩阵
+for j = 1:N
+    for i = 1:N
+        origin = -h^2 * ((i*h)^2 + (j*h)^2) * exp(i*h*j*h);
+        if i == 1 && j == 1
+            b((j-1)*N+i) = 2 + origin;
+        elseif i == 1 && j == N
+            b((j-1)*N+i) = 1 + exp((i+1)*h) + origin;
+        elseif i == N && j == N
+            b((j-1)*N+i) = exp((i+1)*h) + exp((j+1)*h) + origin;
+        elseif j == 1 && i == N
+            b((j-1)*N+i) = 1 + exp((j+1)*h) + origin;
+        elseif (i == 1 && (1 < j && j < N))
+            b((j-1)*N+i) = 1 + origin;
+        elseif (j == 1 && (1 < i && i < N))
+            b((j-1)*N+i) = 1 + origin;
+        elseif (i == N && (1 < j && j < N))
+            b((j-1)*N+i) = exp(j*h) + origin;
+        elseif (j == N && (1 < i && i < N))
+            b((j-1)*N+i) = exp(i*h) + origin;
+        else
+            b((j-1)*N+i) = origin;
+        end
+        A((j-1)*N+i, (j-1)*N+i) = 4;
+        if i ~= N
+            A((j-1)*N+i, (j-1)*N+i+1) = -1;
+        end
+        if j ~= N
+            A((j-1)*N+i, (j)*N+i) = -1;
+        end
+        if i ~= 1
+            A((j-1)*N+i, (j-1)*N+i-1) = -1;
+        end
+        if j ~= 1
+            A((j-1)*N+i, (j-2)*N+i) = -1;
+        end
+    end
+end
+% tu = A \ b;
+% rtu = reshape(tu, N, []);
+% [X,Y] = meshgrid(1/(N+1):1/(N+1):1-1/(N+1));
+% u_exact = exp(X.*Y);
+[tu_GS, kgs]= GS(A, b, 1e-5, 1000);
+surf(X,Y,reshape(tu_GS, N, []));
+% uInf = norm(rtu - u_exact, inf);
+
+##### SOURCE END #####
+--></body></html>
